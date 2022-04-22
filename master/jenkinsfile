@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: "master"]], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'services']], userRemoteConfigs: [[ url: 'git@github.com:avikec118/PruTest.git']]]
             }
         }
     }
