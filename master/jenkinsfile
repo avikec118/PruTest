@@ -3,7 +3,7 @@ pipeline {
     stages {  
             stage ('Git-Checkout') {  
                 steps{
-                    git checkout: 'https://github.com/avikec118/PruTest.git'
+                    git clone: 'https://github.com/avikec118/PruTest.git'
                     echo "Checkout successful";
                 } 
             }
