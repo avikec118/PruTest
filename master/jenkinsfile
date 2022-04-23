@@ -13,6 +13,7 @@ pipeline {
             java --version
             export MAVEN_HOME=/opt/maven
             env
+            mvn --version
             '''
       }
     }
