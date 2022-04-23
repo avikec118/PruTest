@@ -5,10 +5,9 @@ pipeline {
       steps {
    
             sh ''' 
-            mvn clean install -DskipTests
-            cd /var/jenkins_home/workspace/Avinash_pru_main/target/
-            ls -laRt
+             docker build --tag myimage:8 .
             '''
+           
       }
     }
     
