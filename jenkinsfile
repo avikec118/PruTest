@@ -4,10 +4,11 @@ pipeline {
     stage ('Build') {
       steps {
    
-            sh 'mvn clean install -DskipTests
+            sh ''' 
+            mvn clean install -DskipTests
             cd /var/jenkins_home/workspace/Avinash_pru_main/target/
             ls -laRt
-            '
+            '''
       }
     }
     stage ('Deploy') {
