@@ -11,6 +11,7 @@ pipeline {
             hostname
             pwd
             java --version
+            export MAVEN_HOME=/opt/maven
             env
             '''
       }
