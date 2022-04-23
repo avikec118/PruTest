@@ -1,11 +1,11 @@
 pipeline {  
     agent any  
     stages {  
-            #stage ('Git-Checkout') {  
-                #steps{
-                    #git credentialsId: 'avikec118', url: 'git@github.com:avikec118/PruTest.git'
-                    #echo "Checkout successful";
-                } 
+            /** stage ('Git-Checkout') {  
+                * steps{
+                   * git credentialsId: 'avikec118', url: 'git@github.com:avikec118/PruTest.git'
+                   * echo "Checkout successful";
+                } */
             }
             stage ('Compile') {  
                   steps{
