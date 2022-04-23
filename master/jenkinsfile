@@ -12,7 +12,6 @@ pipeline {
             pwd
             env
             '''
-        }
       }
     }
     stage ('Deploy') {
