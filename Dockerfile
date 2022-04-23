@@ -8,7 +8,8 @@ FROM maven:3.6.1-jdk-8-alpine AS MAVEN_BUILD
 WORKDIR /app
 
 COPY ./ ./
-# RUN mvn clean package 
+RUN mvn clean package 
+mvn clean install -DskipTests
 
 # the second stage of our build will use open jdk 8 on alpine 3.9
 FROM openjdk:8-jre-alpine3.9
