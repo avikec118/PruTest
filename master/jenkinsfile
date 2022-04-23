@@ -1,37 +1,20 @@
-pipeline {  
-    agent any  
-    stages {  
-            /** stage ('Git-Checkout') {  
-                * steps{
-                   * git credentialsId: 'avikec118', url: 'git@github.com:avikec118/PruTest.git'
-                   * echo "Checkout successful";
-                } */
-            }
-            stage ('Compile') {  
-                  steps{
-                    bat label: '', script: 'mvn compile'
-                    echo "test successful";
-                    
-                } 
-            }
-            stage ('Build') {  
-                  steps{
-                    bat label: '', script: 'mvn clean'
-                    bat label: '', script: 'mvn package'
-                    echo "build successful";
-                    
-                } 
-            }
-             stage ('Test') {  
-                  steps{
-                    bat label: '', script: 'mvn test'
-                    echo "test successful";
-                } 
-            }
-        stage ('Monitor') { 
-           steps{ 
-             echo "Now you can monitor!";
-           }
-        }
+pipeline {
+  agent any
+  tools {
+    maven 'maven-3.6.3' 
+  }
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
     }
+    stage ('Deploy') {
+      steps {
+        script {
+          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://dayal-test.letspractice.tk:8081')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
+        }
+      }
+    }
+  }
 }
