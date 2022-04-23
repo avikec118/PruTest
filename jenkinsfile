@@ -3,13 +3,20 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-   
-            sh ''' 
-             docker build --tag myimage:8 .
-            '''
            
+            sh ''' 
+             mvn clean install -DskipTests
+            cd /var/jenkins_home/workspace/Avinash_pru_main/target/
+            ls -laRt
+            '''
       }
     }
-    
+    stage ('Deploy') {
+      steps {
+        script {
+          java -jar /var/jenkins_home/workspace/Avinash_pru_main/target/spring-boot-microservice 0.0.1-SNAPSHOT
+        }
+      }
+    }
   }
 }
