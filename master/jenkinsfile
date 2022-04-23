@@ -3,7 +3,7 @@ pipeline {
     stages {  
             stage ('Git-Checkout') {  
                 steps{
-                    git credentialsId: 'avi.kec118@gmail.com', url: 'git@github.com:avikec118/PruTest.git'
+                    git credentialsId: 'a28ad25c-c5f2-4bde-bb27-152c03cda3a5', url: 'git@github.com:avikec118/PruTest.git'
                     echo "Checkout successful";
                 } 
             }
