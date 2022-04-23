@@ -13,10 +13,8 @@ pipeline {
     }
     stage ('Deploy') {
       steps {
-        script {
           sh
           'java -jar /var/jenkins_home/workspace/Avinash_pru_main/target/spring-boot-microservice 0.0.1-SNAPSHOT'
-        }
       }
     }
   }
