@@ -1,12 +1,5 @@
 pipeline {  
     agent any  
-    stages {  
-            stage ('Git-Checkout') {  
-                steps{
-                    checkout poll: url: 'https://github.com/avikec118/PruTest.git'
-                    echo "Checkout successful";
-                } 
-            }
             stage ('Compile') {  
                   steps{
                     bat label: '', script: 'mvn compile'
