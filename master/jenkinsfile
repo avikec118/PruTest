@@ -3,18 +3,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        sh '''
-            echo "username"
-            whoami
-            echo "host"
-            echo hostname
-            hostname
-            pwd
-            java --version
-            export MAVEN_HOME=/opt/maven
-            env
-            mvn --version
-            '''
+        sh 'mvn clean install -DskipTests'
       }
     }
     stage ('Deploy') {
