@@ -13,7 +13,7 @@ pipeline {
     }
     stage ('Deploy') {
       steps {
-          sh 'java -jar /var/jenkins_home/workspace/Avinash_pru_main/target/spring-boot-microservice 0.0.1-SNAPSHOT'
+          sh 'java -jar /var/jenkins_home/workspace/Avinash_pru_main/target/spring-boot-helloworld-0.0.1-SNAPSHOT.jar'
 
       }
     }
